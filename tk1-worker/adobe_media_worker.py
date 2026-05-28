@@ -49,7 +49,7 @@ log = logging.getLogger("adobe-worker")
 # ─── Env ────────────────────────────────────────────────────
 SUPABASE_URL  = os.environ["SUPABASE_URL"]
 SUPABASE_KEY  = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-R2_ACCOUNT_ID = os.environ["R2_ACCOUNT_ID"]
+R2_ACCOUNT_ID = os.environ.get("R2_ACCOUNT_ID") or os.environ["CLOUDFLARE_ACCOUNT_ID"]
 R2_ACCESS_KEY = os.environ["R2_ACCESS_KEY_ID"]
 R2_SECRET_KEY = os.environ["R2_SECRET_ACCESS_KEY"]
 R2_BUCKET     = os.environ.get("R2_MEDIA_BUCKET", "tk1-media")

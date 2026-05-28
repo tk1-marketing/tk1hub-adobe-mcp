@@ -4,6 +4,13 @@ REM Execute como: .\run_worker.bat
 
 cd /d "%~dp0"
 
+REM Carregar .env como variáveis de ambiente
+if exist .env (
+    for /f "usebackq eol=# tokens=1,* delims==" %%A in (".env") do (
+        if not "%%A"=="" set "%%A=%%B"
+    )
+)
+
 echo Instalando dependências...
 pip install -r requirements.txt -q
 
