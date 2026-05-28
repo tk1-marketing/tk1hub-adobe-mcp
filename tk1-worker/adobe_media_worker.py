@@ -124,6 +124,9 @@ def complete_job(job_id: str, status: str, output: dict = None, error: str = Non
 
 def fetch_input_url(url: str, dest_path: str):
     import urllib.request
+    opener = urllib.request.build_opener()
+    opener.addheaders = [('User-Agent', 'TK1-MediaWorker/1.0')]
+    urllib.request.install_opener(opener)
     urllib.request.urlretrieve(url, dest_path)
 
 # ─── Handlers ───────────────────────────────────────────────
